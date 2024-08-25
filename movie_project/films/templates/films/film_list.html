@@ -1,0 +1,40 @@
+{% extends 'films/layout.html' %}
+{% load static %}
+{% block title %}Список фильмов{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h3 class="mb-0">Список фильмов</h3>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        {% for film in films %}
+                            <li class="list-group-item">
+                                <h5 class="mb-1"><strong>{{ film.title }}</strong></h5>
+                                <p class="mb-1">{{ film.description }}</p>
+                                <small class="text-muted">Рецензия: {{ film.review }}</small>
+                                {% if film.image %}
+                                    <div class="mt-2">
+                                        <img src="{{ film.image.url }}" alt="{{ film.title }}" style="max-width: 200px;">
+                                    </div>
+                                {% endif %}
+                            </li>
+                        {% empty %}
+                            <li class="list-group-item">
+                                <p class="mb-0">Нет доступных фильмов.</p>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center mt-3">
+                <a href="{% url 'add_film' %}" class="btn btn-outline-secondary">Добавить новый фильм</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,32 @@
+body {
+    background-color: #2f3338;
+    color: #ffffff;
+}
+
+aside {
+    background-color: #2f3338;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+aside a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+aside a:hover {
+    color: #dcdcdc;
+}
+
+main {
+    padding: 20px;
+}
+
+.site-footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    /* Удалите position: fixed; и замените на position: relative; если нужно */
+    width: 100%;
+    /* Добавьте отступ внизу, если нужно */

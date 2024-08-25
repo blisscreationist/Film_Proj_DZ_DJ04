@@ -1,0 +1,31 @@
+{% extends 'films/layout.html' %}
+{% load static %}
+{% block title %}Добавить фильм{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h3 class="mb-0">Добавьте новый фильм</h3>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-success btn-block mt-4">Добавить</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="text-center mt-3">
+                <a href="{% url 'film_list' %}" class="btn btn-outline-secondary">Вернуться к списку фильмов</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
